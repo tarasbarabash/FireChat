@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tarasbarabash.firechat.Preference.UserPreference
+        app:icon="@drawable/ic_send_gray_24dp"
+        app:title="@string/username" />
+
+    <com.tarasbarabash.firechat.Preference.UserPreference
+        app:icon="@drawable/ic_info_dark_gray_24dp"
+        app:title="@string/bio" />
+
+    <com.tarasbarabash.firechat.Preference.UserPreference
+        app:icon="@drawable/ic_account_circle_dark_gray_48dp"
+        app:title="@string/name" />
+
+</PreferenceScreen>

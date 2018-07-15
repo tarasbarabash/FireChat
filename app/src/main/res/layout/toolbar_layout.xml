@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tarasbarabash.firechat.ViewModel.ConversationActivityVM" />
+
+        <variable
+            name="profile"
+            type="com.tarasbarabash.firechat.Model.Profile" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{() -> viewModel.onProfileClick(profile)}"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/name_letter"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:imageUrl="@{profile.photoUrl}"
+            fresco:placeholderImage="@drawable/ic_account_circle_white_48dp"
+            fresco:failureImage="@drawable/ic_account_circle_white_48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            fresco:roundAsCircle="true" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            app:name="@{profile}"
+            app:layout_constraintBottom_toTopOf="@+id/addition_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/name_letter"
+            app:layout_constraintTop_toTopOf="@+id/name_letter"
+            tools:text="TARAS"
+            style="@style/name_style_tv" />
+
+        <TextView
+            android:id="@+id/addition_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/colorDarkWhite"
+            app:online="@{profile}"
+            app:layout_constraintBottom_toBottomOf="@+id/name_letter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            tools:text="+380981254"
+            app:layout_constraintStart_toEndOf="@+id/name_letter"
+            style="@style/phoneNumber_tv" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
